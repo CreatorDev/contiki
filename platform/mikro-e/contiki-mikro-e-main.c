@@ -29,14 +29,18 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-/* TODO: add documentation */
+/*
+   The mikro-e platform is based on the PIC32MX470F512H with MIPS32 core.
+ */
 #include <contiki.h>
 #include <clock.h>
 #include <pic32.h>
 #include <pic32_clock.h>
 #include <dev/watchdog.h>
 #include <platform-init.h>
+#include <debug-uart.h>
 
+#define UART_DEBUG_BAUDRATE 115200
 
 /*---------------------------------------------------------------------------*/
 int
@@ -54,6 +58,8 @@ main(int argc, char **argv)
   ctimer_init();
   rtimer_init();
 
+  dbg_setup_uart(UART_DEBUG_BAUDRATE);
+
   autostart_start(autostart_processes);
   watchdog_start();
 
@@ -63,7 +69,7 @@ main(int argc, char **argv)
       r = process_run();
     } while(r > 0);
     watchdog_stop();
-    asm volatile("wait");
+    asm volatile ("wait");
     watchdog_start();
   }
 

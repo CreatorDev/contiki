@@ -41,7 +41,7 @@ typedef uint16_t uip_stats_t;
 typedef uint32_t clock_time_t;
 typedef uint32_t rtimer_clock_t;
 
-#define RTIMER_CLOCK_DIFF(a,b) ((int32_t)((a)-(b)) < 0)
+#define RTIMER_CLOCK_DIFF(a, b) ((int32_t)((a) - (b)) < 0)
 
 #define CLOCK_CONF_SECOND                       1024
 
