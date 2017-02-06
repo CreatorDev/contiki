@@ -78,6 +78,12 @@
     return 0;                                                            \
   }                                                                      \
   uint8_t                                                                \
+  i2c##XX##_release(void)                                                \
+  {                                                                      \
+    I2C##XX##CON = 0;                                                    \
+    return 0;                                                            \
+  }                                                                      \
+  uint8_t                                                                \
   i2c##XX##_set_frequency(uint32_t baudrate)                             \
   {                                                                      \
     I2C##XX##BRG = pic32_clock_calculate_brg(2, baudrate);               \
