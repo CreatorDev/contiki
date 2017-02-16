@@ -3,11 +3,14 @@ CONTIKI = ../../../..
 
 CFLAGS += -DMOTION_CLICK
 
+ifndef TARGET
+TARGET = mikro-e
+endif
+
 APPS += motion-click
 APPDIRS += ../../dev
 
 all: $(CONTIKI_PROJECT)
-	xc32-bin2hex $(CONTIKI_PROJECT).$(TARGET)
 
 distclean: cleanall
 

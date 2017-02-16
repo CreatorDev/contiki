@@ -12,6 +12,5 @@ LDFLAGS += -Wl,--defsym,_min_heap_size=32000
 SMALL=0
 
 all: main
-	xc32-bin2hex main.$(TARGET)
 
 include $(CONTIKI)/Makefile.include
