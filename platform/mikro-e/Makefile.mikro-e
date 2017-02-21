@@ -56,3 +56,24 @@ CFLAGS += -DRF_CHANNEL=$(CHANNEL)
 CFLAGS += -DIEEE802154_CONF_PANID=$(PAN_ID)
 
 include $(CONTIKI)/cpu/pic32/Makefile.pic32
+
+
+### CPU-dependent cleanup files
+CLEAN += *.hex *.$(TARGET)
+
+CUSTOM_RULE_LINK = 1
+
+.PRECIOUS: %.hex
+
+%.bin: %.co $(PROJECT_OBJECTFILES) $(PROJECT_LIBRARIES) contiki-$(TARGET).a
+	$(TRACE_LD)
+	$(Q)$(LD) $(LDFLAGS) $(TARGET_STARTFILES) ${filter-out %.a,$^} \
+	    ${filter %.a,$^} $(TARGET_LIBFILES) -o $@
+
+%.hex: %.bin FORCE
+	xc32-bin2hex $<
+
+FORCE:
+
+%.$(TARGET): %.bin %.hex
+	mv $< $@

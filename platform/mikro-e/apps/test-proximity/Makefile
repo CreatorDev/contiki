@@ -9,7 +9,6 @@ APPS += proximity-click
 APPDIRS += ../../dev
 
 all: $(CONTIKI_PROJECT)
-	xc32-bin2hex $(CONTIKI_PROJECT).$(TARGET)
 
 distclean: cleanall
 
