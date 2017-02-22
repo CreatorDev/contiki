@@ -49,7 +49,9 @@
 
 void (*interrupt_isr)(void) = NULL;
 
+#ifndef UART_DEBUG_BAUDRATE
 #define UART_DEBUG_BAUDRATE 115200
+#endif
 
 #ifdef MOTION_CLICK
 SENSORS(&button_sensor, &button_sensor2, &motion_sensor);
