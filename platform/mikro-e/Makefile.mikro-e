@@ -15,9 +15,15 @@ CONTIKI_PLAT_DEFS += -D __USE_UART_PORT3__
 ifeq ($(USE_SERIAL_PADS),1)
   #If using RB9 and RD11 as uart pins for debug
   CONTIKI_PLAT_DEFS += -D __USE_UART_PORT2_FOR_DEBUG__
+ifeq ($(USE_SLIP),1)
+  CONTIKI_PLAT_DEFS += -D __USE_UART_PORT3_FOR_SLIP__
+endif
 else
   #If using RF4 and RF5 as uart pins for debug
   CONTIKI_PLAT_DEFS += -D __USE_UART_PORT3_FOR_DEBUG__
+ifeq ($(USE_SLIP),1)
+  CONTIKI_PLAT_DEFS += -D __USE_UART_PORT2_FOR_SLIP__
+endif
 endif
 
 CONTIKI_PLAT_DEFS += -D __USE_CN_IRQ__
