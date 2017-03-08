@@ -1,6 +1,6 @@
 CONTIKI_PROJECT = test-thermo3
 CONTIKI = ../../../..
-
+TARGET ?= mikro-e
 CFLAGS += -DTHERMO3_CLICK
 
 APPS += thermo3-click

@@ -3,6 +3,8 @@ CONTIKI = ../../../..
 
 PROXIMITY_CLICK = proximity-click
 
+TARGET ?= mikro-e
+
 CFLAGS += -DPROXIMITY_CLICK
 
 APPS += proximity-click

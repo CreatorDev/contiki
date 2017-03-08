@@ -1,4 +1,6 @@
 CONTIKI_PROJECT = test-button
+TARGET ?= mikro-e
+
 all: $(CONTIKI_PROJECT)
 
 CONTIKI = ../../../../

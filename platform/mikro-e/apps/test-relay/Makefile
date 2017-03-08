@@ -1,6 +1,7 @@
 CONTIKI_PROJECT = test-relay
 CONTIKI = ../../../..
 
+TARGET ?= mikro-e
 CFLAGS += -DRELAY_CLICK
 
 APPS += relay-click

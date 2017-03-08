@@ -1,6 +1,6 @@
 CONTIKI=../../../../
 
-TARGET = mikro-e
+TARGET ?= mikro-e
 VERSION? = $(shell git describe --abbrev=4 --dirty --always --tags)
 
 CFLAGS += -DVERSION=$(VERSION)
