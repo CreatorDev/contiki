@@ -1,5 +1,11 @@
 CONTIKI_PROJECT = test-led
-all: $(CONTIKI_PROJECT)
 
 CONTIKI = ../../../../
+
+ifndef TARGET
+TARGET = mikro-e
+endif
+
+all: $(CONTIKI_PROJECT)
+
 include $(CONTIKI)/Makefile.include

@@ -1,13 +1,14 @@
 CONTIKI_PROJECT = test-thermo3
 CONTIKI = ../../../..
-
+ifndef TARGET
+TARGET = mikro-e
+endif
 CFLAGS += -DTHERMO3_CLICK
 
 APPS += thermo3-click
 APPDIRS += ../../dev
 
 all: $(CONTIKI_PROJECT)
-	xc32-bin2hex $(CONTIKI_PROJECT).$(TARGET)
 
 distclean: cleanall
 
