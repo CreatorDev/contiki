@@ -127,7 +127,13 @@
   pic32_uart##XX##_power_up(void)                                                                               \
   {                                                                                                             \
     return 0;                                                                                                   \
+  }                                                                                                             \
+  static int8_t                                                                                                 \
+  pic32_uart##XX##_power_down(void)                                                                             \
+  {                                                                                                             \
+    return 0;                                                                                                   \
   }
+
 /*---------------------------------------------------------------------------*/
 #define UART_PORT_INIT(XX, YY, ZZ, WW)                                                                          \
   int8_t                                                                                                        \
@@ -163,7 +169,15 @@
     U##XX##MODESET = _U##XX##MODE_UARTEN_MASK;                                                                  \
                                                                                                                 \
     return UART_NO_ERROR;                                                                                       \
-  }
+  }                                                                                                             \
+int8_t                                                                                                          \
+pic32_uart##XX##_release(void)                                                                                  \
+{                                                                                                               \
+  U##XX##MODE = 0;                                                                                              \
+  pic32_uart##XX##_power_down();                                                                                \
+  return 0;                                                                                                     \
+}
+
 /*---------------------------------------------------------------------------*/
 #define UART_PORT(XX, YY)                                          \
                                                                    \
