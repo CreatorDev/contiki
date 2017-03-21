@@ -93,7 +93,13 @@
   pic32_i2c##XX##_power_up(void)                                         \
   {                                                                      \
      return 0;                                                           \
+  }                                                                      \
+  static int8_t                                                          \
+  pic32_i2c##XX##_power_down(void)                                       \
+  {                                                                      \
+     return 0;                                                           \
   }
+
 /*----------------------------------------------------------------------------------------------*/
 #define I2C_PORT(XX)                                                     \
   static uint8_t pic32_i2c##XX##_nack_bit = 0;                           \
@@ -118,7 +124,13 @@
     IFS1CLR = (_IFS1_I2C##XX##MIF_MASK ) | (_IFS1_I2C##XX##BIF_MASK );   \
     I2C##XX##CON = 0;                                                    \
     I2C##XX##CONSET = _I2C##XX##CON_SMEN_MASK;                           \
-                                                                         \
+    return 0;                                                            \
+  }                                                                      \
+  uint8_t                                                                \
+  pic32_i2c##XX##_release(void)                                          \
+  {                                                                      \
+    I2C##XX##CON = 0;                                                    \
+    pic32_i2c##XX##_power_down();                                        \
     return 0;                                                            \
   }                                                                      \
   uint8_t                                                                \

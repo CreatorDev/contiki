@@ -46,6 +46,7 @@
 /*---------------------------------------------------------------------------*/
 #define I2C_DEF(XX)                                                \
   uint8_t pic32_i2c##XX##_init();                                  \
+  uint8_t pic32_i2c##XX##_release(void);                           \
   uint8_t pic32_i2c##XX##_bus_idle();                              \
   uint8_t pic32_i2c##XX##_set_frequency (uint32_t );               \
   uint8_t pic32_i2c##XX##_master_enable();                         \
