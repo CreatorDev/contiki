@@ -25,6 +25,7 @@ def mikroe_apps = [
     'test-relay',
     'test-rtc',
     'test-thermo3',
+    'test-uart'
 ]
 
 properties([
