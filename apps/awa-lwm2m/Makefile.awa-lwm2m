@@ -1,0 +1,25 @@
+AWA_URL?=https://github.com/FlowM2M/AwaLWM2M.git
+AWA_VERSION?=0.2.5
+AWA_DIR:=$(dir $(filter %/Makefile.awa-lwm2m,$(MAKEFILE_LIST)))AwaLWM2M
+
+CFLAGS += -I"$(AWA_DIR)"/api/include
+
+CLEAN += "$(AWA_DIR)"
+
+ifneq ($(MAKECMDGOALS),clean)
+-include $(AWA_DIR)/.git-cloned
+$(AWA_DIR)/.git-cloned:
+	git clone "$(AWA_URL)" -b "$(AWA_VERSION)" "$(AWA_DIR)"
+	touch $@
+endif
+
+define AWAMODULE
+-include $(1)/$(2)/Makefile.$(2)
+awa-lwm2m_src += $$($(2)_src)
+APPDS += $(1)/$(2)
+endef
+
+AWACORE=client common erbium
+AWALIB=b64 hmac xml
+$(foreach c,$(AWACORE),$(eval $(call AWAMODULE,$(AWA_DIR)/core/src,$(c))))
+$(foreach c,$(AWALIB),$(eval $(call AWAMODULE,$(AWA_DIR)/lib,$(c))))

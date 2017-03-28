@@ -1,0 +1,87 @@
+<ObjectID>27000</ObjectID>
+<Name>Frequency</Name>
+<MIMEType>application/vnd.oma.lwm2m.x:27000</MIMEType>
+<Description>Frequency object</Description>
+<SerialisationName>Frequency</SerialisationName>
+<Singleton>true</Singleton>
+<Properties>n
+    <PropertyID>5700</PropertyID>
+    <Name>value</Name>
+    <DataType>Float</DataType>
+    <IsCollection>false</IsCollection>
+    <IsMandatory>true</IsMandatory>
+    <Access>Read</Access>
+    <SerialisationName>value</SerialisationName>
+</Properties>
+<Properties>
+    <PropertyID>5701</PropertyID>
+    <Name>units</Name>
+    <DataType>Float</DataType>
+    <IsCollection>false</IsCollection>
+    <IsMandatory>false</IsMandatory>
+    <Access>Read</Access>
+    <SerialisationName>units</SerialisationName>
+</Properties>
+<Properties>
+    <PropertyID>5601</PropertyID>
+    <Name>measured min</Name>
+    <DataType>Float</DataType>
+    <IsCollection>false</IsCollection>
+    <IsMandatory>false</IsMandatory>
+    <Access>Read</Access>
+    <SerialisationName>measuredmin</SerialisationName>
+</Properties>
+<Properties>
+    <PropertyID>5602</PropertyID>
+    <Name>measured max</Name>
+    <DataType>Float</DataType>
+    <IsCollection>false</IsCollection>
+    <IsMandatory>false</IsMandatory>
+    <Access>Read</Access>
+    <SerialisationName>measuredmax</SerialisationName>
+</Properties>
+<Properties>
+    <PropertyID>5603</PropertyID>
+    <Name>range min</Name>
+    <DataType>Float</DataType>
+    <IsCollection>false</IsCollection>
+    <IsMandatory>false</IsMandatory>
+    <Access>Read</Access>
+    <SerialisationName>rangemin</SerialisationName>
+</Properties>
+<Properties>
+    <PropertyID>5604</PropertyID>
+    <Name>range max</Name>
+    <DataType>Float</DataType>
+    <IsCollection>false</IsCollection>
+    <IsMandatory>false</IsMandatory>
+    <Access>Read</Access>
+    <SerialisationName>rangemax</SerialisationName>
+</Properties>
+<Properties>
+    <PropertyID>5605</PropertyID>
+    <Name>reset</Name>
+    <DataType>NotSet</DataType>
+    <IsCollection>false</IsCollection>
+    <IsMandatory>false</IsMandatory>
+    <Access>Execute</Access>
+    <SerialisationName>reset</SerialisationName>
+</Properties>
+<Properties>
+    <PropertyID>5821</PropertyID>
+    <Name>calibration</Name>
+    <DataType>String</DataType>
+    <IsCollection>false</IsCollection>
+    <IsMandatory>false</IsMandatory>
+    <Access>ReadWrite</Access>
+    <SerialisationName>calibration</SerialisationName>
+</Properties>
+<Properties>
+    <PropertyID>5750</PropertyID>
+    <Name>type</Name>
+    <DataType>String</DataType>
+    <IsCollection>false</IsCollection>
+    <IsMandatory>false</IsMandatory>
+    <Access>ReadWrite</Access>
+    <SerialisationName>type</SerialisationName>
+</Properties>

@@ -1,0 +1,20 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+          "type": "lldb-mi",
+          "request": "launch",
+          "name": "Launch Program (SSH)",
+          "target": "./awa-lwm2m.minimal-net",
+          "cwd": "${workspaceRoot}",
+          "ssh": {
+            "forwardX11": false,
+            "host": "127.0.0.1",
+            "cwd": "/build/examples/awa-lwm2m",
+            "user": "root",
+            "password": "",
+            "port": 1022
+          }
+        }
+    ]
+}
