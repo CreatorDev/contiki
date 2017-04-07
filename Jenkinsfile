@@ -60,7 +60,8 @@ node('docker && imgtec') {
             for (item in examples) {
                 try {
                     sh "cd examples/${item} && make -j8 TARGET=mikro-e CHANNEL=${params.CHANNEL} \
-                    PAN_ID=${params.PAN_ID} USE_SERIAL_PADS=${params.PADS}"
+                    PAN_ID=${params.PAN_ID} USE_SERIAL_PADS=${params.PADS} \
+                    LDFLAGS=-Wl,--defsym,_min_heap_size=32000"
                     sh "cd examples/${item} && xc32-bin2hex *.mikro-e && mv *.hex ${WORKSPACE}/"
                 } catch(exc) {
                     echo "Caught: ${exc}"
