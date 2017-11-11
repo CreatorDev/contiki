@@ -107,6 +107,6 @@ rtimer_arch_schedule(rtimer_clock_t t)
 }
 /*---------------------------------------------------------------------------*/
 
-TIMER_INTERRUPT(3, rtimer_callback);
+TIMER_INTERRUPT(5, rtimer_callback);
 
 /** @} */
